@@ -111,7 +111,7 @@ public class BleServer {
 				.build();
 
 		//TODO: replace this with a real value
-		final char mockTXPowerlevel = (char) -2;
+		final char mockTXPowerlevel = (char) 0;
 		CryptoModule.getInstance(context).setMetadata(
 				new AssociatedMetadata(PPCP_VERSION_MAJOR, PPCP_VERSION_MINOR, mockTXPowerlevel));
 
