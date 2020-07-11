@@ -265,6 +265,7 @@ public class TracingService extends Service {
     }
 
     private void restartServer() {
+
         BluetoothState bluetoothState = startServer();
         if (bluetoothState == BluetoothState.NOT_SUPPORTED) {
             Log.e(TAG, "bluetooth not supported");
@@ -329,7 +330,9 @@ public class TracingService extends Service {
     }
 
     private BluetoothState startClient() {
+        Log.v(TAG, "request to restart client");
         stopClient();
+
         if (startReceiving) {
             bleClient = new BleClient(this);
             return bleClient.start();
