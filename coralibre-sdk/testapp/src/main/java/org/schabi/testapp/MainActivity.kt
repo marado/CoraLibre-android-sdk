@@ -9,6 +9,7 @@ import org.coralibre.android.sdk.PPCP
 
 import org.coralibre.android.sdk.internal.TracingService;
 import org.coralibre.android.sdk.internal.TracingService.ACTION_START
+import org.coralibre.android.sdk.internal.TracingService.ACTION_STOP
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +23,13 @@ class MainActivity : AppCompatActivity() {
             PPCP.init(this);
             val serviceIntent = Intent(this, TracingService::class.java).apply {
                 action = ACTION_START
+            }
+            startService(serviceIntent);
+        }
+
+        findViewById<Button>(R.id.stop_service_button).setOnClickListener {
+            val serviceIntent = Intent(this, TracingService::class.java).apply {
+                action = ACTION_STOP
             }
             startService(serviceIntent);
         }
